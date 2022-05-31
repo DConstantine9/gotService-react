@@ -7,7 +7,7 @@ import RowBlock from "../rowBlock"
 
 export default class CharacterPage extends Component {
   state = {
-    selectedChar: 130,
+    selectedChar: "",
     error: false
   }
 
@@ -40,7 +40,10 @@ export default class CharacterPage extends Component {
     )
 
     const personDetails = (
-      <ItemDetails charId={this.state.selectedChar}>
+      <ItemDetails 
+        itemId={this.state.selectedChar}
+        getData={this.gotService.getCharacter}
+      >
         <Field field="gender" label="gender" />
         <Field field="born" label="born" />
         <Field field="died" label="died" />
